@@ -6,14 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import monitoring.dto.EmailNotificationData;
 import monitoring.service.EmailDataProvider;
+import monitoring.service.RandomDataBaseService;
 
 @RestController
 @RequiredArgsConstructor
 public class EmailDataProviderController {
-	
+	final RandomDataBaseService randomDatabase;
 	final EmailDataProvider service;
 	
 	@GetMapping("data/{patientId}")
@@ -28,6 +30,11 @@ public class EmailDataProviderController {
 		return res;
 		
 		
+	}
+	
+	@PostConstruct
+	void createRandomDataBase(){
+		randomDatabase.createRandomDataBase();
 	}
 
 }

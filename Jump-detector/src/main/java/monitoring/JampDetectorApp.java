@@ -21,7 +21,7 @@ public class JampDetectorApp {
 	
 	final StreamBridge streamBridge;
 	final JumpsDetectorService jumpsDetectorService;
-	@Value("${app.jumps.binding.name:jumps-out-0}")
+	@Value("${app.jumps.binding.name}")
 	String jumpsBindingName;
 	
 	public static void main(String[] args) {
@@ -29,7 +29,7 @@ public class JampDetectorApp {
 
 	}
 	@Bean
-	Consumer<PulseProbe> pulseProbeConsumer(){
+	Consumer<PulseProbe> pulseProbeConsumerJumps(){
 		
 		return pulseProbe -> probeConsumer(pulseProbe);
 	}

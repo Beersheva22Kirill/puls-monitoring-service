@@ -50,7 +50,7 @@ class JumpsDetectorTest {
 	LastPulsValue jumpValue = new LastPulsValue(PATIENT_ID_JUMP, VALUE);
 	JumpPulse jumpPulse = new JumpPulse(PATIENT_ID_JUMP, VALUE, JUMP_VALUE);
 	
-	String consumerBindingName = "pulseProbeConsumer-in-0";
+	String consumerBindingName = "pulseProbeConsumerJumps-in-0";
 	@Value("${app.jumps.binding.name}")
 	String producerBindingName;
 	
